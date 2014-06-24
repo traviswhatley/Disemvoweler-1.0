@@ -11,7 +11,7 @@ namespace Disemvoweler_test
         static void Main(string[] args)
         {
             //this program is going to be awesome
-            Disemvoweler("Nickel back is my favorite band. Their songwriting can't be beat!");
+            Disemvoweler("Nickelback is my favorite band. Their songwriting can't be beat!");
             Disemvoweler("How many bears could bear grylls grill if bear grylls could grill bears?");
             Disemvoweler("I'm a code ninja, baby. I make the funcions and I make the calls");
             Console.ReadKey();
@@ -19,12 +19,14 @@ namespace Disemvoweler_test
 
         static void Disemvoweler(string input)
         {
+            //setting input to lower case
             input = input.ToLower();
             int i = 0;
             //letter is index of input
             char letter = input[i];
-            //consonantResult is letter turned into a string
+            //consonantResult is "empty"
             string consonantResult = "";
+            //vowelResult is "empty"
             string vowelResult = "";
             for (i = 0; i < input.Length; i++)
             {
@@ -35,18 +37,20 @@ namespace Disemvoweler_test
                 {
                     consonantResult += letter;
                 }
-
+                //if letter is a vowel add to vowelResult
                 else if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u' && letter != ' ' && letter != '.' && letter != '?'
                     && letter != '!' && letter != '\''  && letter != ',')
                 {
                     vowelResult += letter;
                 }
-               
-                Console.WriteLine("Original: " + input);               
-                Console.WriteLine("Disemvoweled: " + consonantResult);
-                Console.WriteLine("Vowels: " + vowelResult);
-                Console.WriteLine();
             }
+            //print original input
+            Console.WriteLine("Original: " + input);
+            //print disemvoweled input
+            Console.WriteLine("Disemvoweled: " + consonantResult);
+            //print vowels of input
+            Console.WriteLine("Vowels: " + vowelResult);
+            Console.WriteLine();
         }
     }
 }
